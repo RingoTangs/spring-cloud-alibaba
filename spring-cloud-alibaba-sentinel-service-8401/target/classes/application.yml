@@ -1,0 +1,18 @@
+server:
+  port: 8401
+spring:
+  application:
+    name: cloud-alibaba-sentinel-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 39.97.3.60:1111 # Nginx地址反向代理到Nacos集群
+    sentinel:
+      transport:
+        dashboard: localhost:8080 # 配置Sentinel Dashboard浏览器控制台地址 8080会监控8401服务
+        port: 8719 # Sentinel默认端口8719
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
