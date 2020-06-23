@@ -1,0 +1,25 @@
+server:
+  port: 84
+spring:
+  application:
+    name: cloud-alibaba-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 39.97.3.60:1111
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        port: 8719
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+service-url:
+  nacos-user-service: http://cloud-alibaba-provider # 生产者的服务名字
+
+# 激活Sentinel対Feign的支持
+feign:
+  sentinel:
+    enabled: true
